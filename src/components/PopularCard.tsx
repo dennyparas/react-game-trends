@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { NavLink } from "react-router-dom";
 import { Game } from "../types/gameTypes";
 
 const PopularCard: FC<Game> = ({
@@ -8,6 +9,7 @@ const PopularCard: FC<Game> = ({
   background_image,
   genres,
   platforms,
+  slug,
 }) => {
   console.log("rerendering");
   return (
@@ -25,11 +27,11 @@ const PopularCard: FC<Game> = ({
         </div>
       )}
       <div className="px-4 py-3 bg-gradient-to-t from-black via-gray-900 to-transparent rounded-xl w-full">
-        <a href="index.html">
+        <NavLink to={`/games/${slug}`}>
           <h5 className="text-white font-bold text-md tracking-tight  ">
             {name}
           </h5>
-        </a>
+        </NavLink>
         <p className="text-xs text-gray-500 ">Release</p>
         <p className="text-xs text-gray-300 mb-1">{released}</p>
 

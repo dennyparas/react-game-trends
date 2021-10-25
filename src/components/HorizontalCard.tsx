@@ -1,8 +1,17 @@
 import React, { FC, memo } from "react";
+import { NavLink } from "react-router-dom";
 import { Game } from "../types/gameTypes";
 
 const HorizontalCard: FC<Game> = memo(
-  ({ name, metacritic, released, background_image, genres, platforms }) => {
+  ({
+    name,
+    metacritic,
+    released,
+    background_image,
+    genres,
+    platforms,
+    slug,
+  }) => {
     console.log("rerendering");
     return (
       <div className="bg-white shadow-md  rounded-2xl p-3 flex-1 ">
@@ -22,11 +31,11 @@ const HorizontalCard: FC<Game> = memo(
             />
           </div>
           <div className="flex w-9/12 flex-col lg:ml-3 ">
-            <a href="index.html">
+            <NavLink to={`/games/${slug}`}>
               <h5 className=" font-bold text-md tracking-tight mb-3  ">
                 {name}
               </h5>
-            </a>
+            </NavLink>
             <div className="flex flex-row justify-between ">
               <div className="flex flex-col flex-grow-0 mr-4">
                 <p className="text-xs text-gray-400 ">Release</p>
