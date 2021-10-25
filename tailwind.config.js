@@ -20,4 +20,7 @@ module.exports = {
     extend: {},
   },
   plugins: [require("@tailwindcss/forms")],
+  corePlugins: {
+    outline: false,
+  },
 };
