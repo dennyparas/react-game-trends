@@ -14,7 +14,7 @@ const PlatformsPage: FC = () => {
     isPlatformsListLoading,
   } = useGetPlatformsList(url);
   return (
-    <div className="container mt-5 mb-10 mx-auto px-5 xl:px-0">
+    <div className="container mt-5  mx-auto px-5 xl:px-0">
       <h1 className="text-2xl mb-2 mt-4">
         Platforms {platformsCount > 0 && `(${platformsCount})`}
       </h1>

@@ -6,7 +6,7 @@ import HomeRecentlyReleaseGamesSection from "./HomeRecentlyReleaseGamesSection";
 
 const HomePage: FC = () => {
   return (
-    <div className="container mt-5 mb-10 mx-auto px-5 xl:px-0">
+    <div className="container mt-5  mx-auto px-5 xl:px-0">
       <HomePopularGamesSection />
       <HomeRecentlyReleaseGamesSection />
       <HomeAverageRateGamesSection />
