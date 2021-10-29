@@ -44,7 +44,8 @@ const Navbar: FC = () => {
             <li className="nav-item">
               <NavLink
                 to="/games"
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                activeClassName="font-bold"
+                className="px-3 py-2 flex items-center text-xs uppercase font-normal leading-snug text-white hover:opacity-75"
               >
                 Browse Games
               </NavLink>
@@ -52,7 +53,8 @@ const Navbar: FC = () => {
             <li className="nav-item">
               <NavLink
                 to="/platforms"
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                activeClassName="font-bold"
+                className="px-3 py-2 flex items-center text-xs uppercase font-normal leading-snug text-white hover:opacity-75"
               >
                 Platforms
               </NavLink>
@@ -60,7 +62,8 @@ const Navbar: FC = () => {
             <li className="nav-item">
               <NavLink
                 to="/genres"
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                activeClassName="font-bold"
+                className="px-3 py-2 flex items-center text-xs uppercase font-normal leading-snug text-white hover:opacity-75"
               >
                 Genres
               </NavLink>
@@ -68,7 +71,8 @@ const Navbar: FC = () => {
             <li className="nav-item">
               <NavLink
                 to="/tags"
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                activeClassName="font-bold"
+                className="px-3 py-2 flex items-center text-xs uppercase font-normal leading-snug text-white hover:opacity-75"
               >
                 Tags
               </NavLink>
@@ -76,9 +80,28 @@ const Navbar: FC = () => {
             <li className="nav-item">
               <NavLink
                 to="/developers"
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                activeClassName="font-bold"
+                className="px-3 py-2 flex items-center text-xs uppercase font-normal leading-snug text-white  hover:opacity-75"
               >
                 Developers
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/publishers"
+                activeClassName="font-bold"
+                className="px-3 py-2 flex items-center text-xs uppercase font-normal leading-snug text-white hover:opacity-75"
+              >
+                Publishers
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/stores"
+                activeClassName="font-bold"
+                className="px-3 py-2 flex items-center text-xs uppercase font-normal leading-snug text-white hover:opacity-75"
+              >
+                Stores
               </NavLink>
             </li>
           </ul>

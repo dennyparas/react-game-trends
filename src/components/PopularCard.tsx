@@ -11,7 +11,6 @@ const PopularCard: FC<Game> = ({
   platforms,
   slug,
 }) => {
-  console.log("rerendering");
   return (
     <div
       className="relative flex flex-wrap flex-none content-end bg-cover bg-center bg-center bg-no-repeat shadow-md border border-gray-200 rounded-xl w-72 h-96  mb-3"
@@ -27,7 +26,7 @@ const PopularCard: FC<Game> = ({
         </div>
       )}
       <div className="px-4 py-3 bg-gradient-to-t from-black via-gray-900 to-transparent rounded-xl w-full">
-        <NavLink to={`/games/${slug}`}>
+        <NavLink to={`/game/${slug}`}>
           <h5 className="text-white font-bold text-md tracking-tight  ">
             {name}
           </h5>
@@ -38,16 +37,20 @@ const PopularCard: FC<Game> = ({
         <p className="text-xs text-gray-500 ">Genres: </p>
         <p className="text-xs text-gray-300">
           {genres.slice(0, 3).map((genre, index) => (
-            <span key={genre.id}>{(index ? ", " : "") + genre.name} </span>
+            <NavLink to={`/games?genre=${genre.id}`}>
+              <span key={genre.id}>{(index ? ", " : "") + genre.name} </span>
+            </NavLink>
           ))}
         </p>
 
         <p className="text-xs text-gray-500 ">Platforms</p>
         <p className="text-xs text-gray-300">
           {platforms.map((platform, index) => (
-            <span key={platform.platform.id}>
-              {(index ? ", " : "") + platform.platform.name}
-            </span>
+            <NavLink to={`/games?platform=${platform.platform.id}`}>
+              <span key={platform.platform.id}>
+                {(index ? ", " : "") + platform.platform.name}
+              </span>
+            </NavLink>
           ))}
         </p>
       </div>

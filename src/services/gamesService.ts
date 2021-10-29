@@ -1,9 +1,11 @@
 import axios from "axios";
 import { GamesResults } from "../types/gameTypes";
-import { formatDate, addSubtractMonths } from "./../utils/dateUtil";
-
-export const rootUrl = "https://api.rawg.io/api/";
-const APP_KEY = process.env.REACT_APP_GAME_APP_KEY;
+import { PlatformsResults } from "../types/platformTypes";
+import { GenresResults } from "../types/genreTypes";
+import { TagsResults } from "../types/tagTypes";
+import { DevelopersResults } from "../types/developerTypes";
+import { PublishersResults } from "../types/publisherTypes";
+import { StoresResults } from "../types/storeTypes";
 
 export const fetchGames = async (url: string): Promise<GamesResults> => {
   try {
@@ -14,102 +16,58 @@ export const fetchGames = async (url: string): Promise<GamesResults> => {
   }
 };
 
-export const getPopularGames = async (): Promise<GamesResults> => {
+export const fetchPlatforms = async (
+  url: string
+): Promise<PlatformsResults> => {
   try {
-    const currentDate = formatDate(new Date());
-    const rangeDate = addSubtractMonths(new Date(), -1);
-    const dates = `${rangeDate},${currentDate}`;
-    const response = await axios.get<GamesResults>(
-      `${rootUrl}games?dates=${dates}&ordering=-added&key=${APP_KEY}&page_size=10`
-    );
+    const response = await axios.get<PlatformsResults>(url);
     return response.data;
   } catch (error) {
     throw error;
   }
 };
 
-export const getAverageRateGames = async () => {
+export const fetchGenres = async (url: string): Promise<GenresResults> => {
   try {
-    const dates = `${formatDate(new Date())}, ${addSubtractMonths(
-      new Date(),
-      -1
-    )}`;
-    const response = await axios.get(
-      `${rootUrl}games?dates=${dates}&ordering=-rating&key=${APP_KEY}&page_size=10`
-    );
-    return response;
-  } catch (error) {
-    throw error;
-  }
-};
-
-export const getRecentlyReleaseGames = async () => {
-  try {
-    const dates = `${formatDate(new Date())}, ${addSubtractMonths(
-      new Date(),
-      -1
-    )}`;
-    const response = await axios.get(
-      `${rootUrl}games?dates=${dates}&ordering=released&key=${APP_KEY}&page_size=10`
-    );
-    return response;
-  } catch (error) {
-    throw error;
-  }
-};
-
-export const getAnticipatedGames = async () => {
-  try {
-    const dates = `${formatDate(new Date())}, ${addSubtractMonths(
-      new Date(),
-      2
-    )}`;
-    const response = await axios.get(
-      `${rootUrl}games?dates=${dates}&ordering=released&key=${APP_KEY}&page_size=10`
-    );
+    const response = await axios.get<GenresResults>(url);
     return response.data;
   } catch (error) {
     throw error;
   }
 };
 
-// const currentDate = formatDate(new Date());
-// const rangeDate = addSubtractMonths(new Date(), -1);
-// const dates = `${rangeDate}, ${currentDate}`;
+export const fetchTags = async (url: string): Promise<GenresResults> => {
+  try {
+    const response = await axios.get<TagsResults>(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
-// const currentAnticipatedDate = formatDate(new Date());
-// const rangeAnticipatedDate = addSubtractMonths(new Date(), 1);
-// const anticipatedDates = `${rangeAnticipatedDate}, ${currentAnticipatedDate}`;
+export const fetchDevelopers = async (url: string): Promise<GenresResults> => {
+  try {
+    const response = await axios.get<DevelopersResults>(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
-// export const getHomeGames = async () => {
-//   try {
-//     const popularGames = axios.get(
-//       `${rootUrl}games?dates=${dates}&ordering=-added&key=${APP_KEY}&page_size=10`
-//     );
+export const fetchPublishers = async (url: string): Promise<GenresResults> => {
+  try {
+    const response = await axios.get<PublishersResults>(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
-//     const averageRateGames = axios.get(
-//       `${rootUrl}games?dates=${dates}&ordering=-rating&key=${APP_KEY}&page_size=10`
-//     );
-
-//     const recentlyReleaseGames = axios.get(
-//       `${rootUrl}games?dates=${dates}&ordering=released&key=${APP_KEY}&page_size=10`
-//     );
-
-//     const anticipatedGames = axios.get(
-//       `${rootUrl}games?dates=${anticipatedDates}&ordering=-added&key=${APP_KEY}&page_size=10`
-//     );
-
-//     await axios.all([
-//       popularGames,
-//       averageRateGames,
-//       recentlyReleaseGames,
-//       anticipatedGames,
-//     ]);
-
-//     await axios.spread((...responses) => {
-//       return responses;
-//     });
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const fetchStores = async (url: string): Promise<GenresResults> => {
+  try {
+    const response = await axios.get<StoresResults>(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

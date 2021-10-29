@@ -12,7 +12,6 @@ const HorizontalCard: FC<Game> = memo(
     platforms,
     slug,
   }) => {
-    console.log("rerendering");
     return (
       <div className="bg-white shadow-md  rounded-2xl p-3 flex-1 ">
         <div className="flex-none lg:flex ">
@@ -31,7 +30,7 @@ const HorizontalCard: FC<Game> = memo(
             />
           </div>
           <div className="flex w-9/12 flex-col lg:ml-3 ">
-            <NavLink to={`/games/${slug}`}>
+            <NavLink to={`/game/${slug}`}>
               <h5 className=" font-bold text-md tracking-tight mb-3  ">
                 {name}
               </h5>
@@ -45,9 +44,11 @@ const HorizontalCard: FC<Game> = memo(
                 <p className="text-xs text-gray-400 ">Genres</p>
                 <p className="text-sm text-gray-600 mb-1">
                   {genres.slice(0, 3).map((genre, index) => (
-                    <span key={genre.id}>
-                      {(index ? ", " : "") + genre.name}{" "}
-                    </span>
+                    <NavLink to={`/games?genre=${genre.id}`}>
+                      <span key={genre.id}>
+                        {(index ? ", " : "") + genre.name}{" "}
+                      </span>
+                    </NavLink>
                   ))}
                 </p>
               </div>
@@ -55,9 +56,11 @@ const HorizontalCard: FC<Game> = memo(
             <p className="text-xs text-gray-400 ">Platforms</p>
             <p className="text-sm text-gray-600 mb-1">
               {platforms.map((platform, index) => (
-                <span key={platform.platform.id}>
-                  {(index ? ", " : "") + platform.platform.name}
-                </span>
+                <NavLink to={`/games?platform=${platform.platform.id}`}>
+                  <span key={platform.platform.id}>
+                    {(index ? ", " : "") + platform.platform.name}
+                  </span>
+                </NavLink>
               ))}
             </p>
           </div>

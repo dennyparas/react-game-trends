@@ -1,9 +1,21 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import homeReducer from "./../features/home/HomeSlice";
+import platformsReducer from "./../features/platforms/PlatformsSlice";
+import genresReducer from "./../features/genres/GenresSlice";
+import tagsReducer from "./../features/tags/TagsSlice";
+import developersReducer from "./../features/developers/DevelopersSlice";
+import publishersReducer from "./../features/publishers/PublishersSlice";
+import storesReducer from "./../features/stores/StoresSlice";
 
 export const store = configureStore({
   reducer: {
     home: homeReducer,
+    platforms: platformsReducer,
+    genres: genresReducer,
+    tags: tagsReducer,
+    developers: developersReducer,
+    publishers: publishersReducer,
+    stores: storesReducer,
   },
 });
 

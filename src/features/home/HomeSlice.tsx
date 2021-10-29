@@ -3,7 +3,7 @@ import { RootState } from "./../../app/store";
 import { fetchGames } from "../../services/gamesService";
 import { GamesResults } from "./../../types/gameTypes";
 import { addSubtractMonths, formatDate } from "../../utils/dateUtil";
-import { APP_KEY, GAME_API_ROOT } from "../../constants/api";
+import { GAMES_URL_API } from "../../constants/api";
 
 type HomeTypes = {
   popularGames: GamesResults;
@@ -41,7 +41,7 @@ export const getHomePopularGamesAsync = createAsyncThunk<GamesResults>(
     const currentDate = formatDate(new Date());
     const rangeDate = addSubtractMonths(new Date(), -6);
     const dates = `${rangeDate},${currentDate}`;
-    const url = `${GAME_API_ROOT}games?dates=${dates}&ordering=-added&page_size=10&key=${APP_KEY}`;
+    const url = `${GAMES_URL_API}&dates=${dates}&ordering=-added&page_size=9`;
     const response = await fetchGames(url);
     return response;
   }
@@ -53,7 +53,7 @@ export const getHomeRecentlyReleaseGamesAsync = createAsyncThunk<GamesResults>(
     const currentDate = formatDate(new Date());
     const rangeDate = addSubtractMonths(new Date(), -1);
     const dates = `${rangeDate},${currentDate}`;
-    const url = `${GAME_API_ROOT}games?dates=${dates}&ordering=-added&page_size=9&key=${APP_KEY}`;
+    const url = `${GAMES_URL_API}&dates=${dates}&ordering=-added&page_size=9`;
     const response = await fetchGames(url);
     return response;
   }
@@ -65,7 +65,7 @@ export const getHomeAnticipatedGamesAsync = createAsyncThunk<GamesResults>(
     const currentDate = formatDate(new Date());
     const rangeDate = addSubtractMonths(new Date(), 6);
     const dates = `${currentDate},${rangeDate}`;
-    const url = `${GAME_API_ROOT}games?dates=${dates}&ordering=-added&page_size=9&key=${APP_KEY}`;
+    const url = `${GAMES_URL_API}&dates=${dates}&ordering=-added&page_size=9`;
     const response = await fetchGames(url);
     return response;
   }
@@ -77,7 +77,7 @@ export const getHomeAverageRateGamesAsync = createAsyncThunk<GamesResults>(
     const currentDate = formatDate(new Date());
     const rangeDate = addSubtractMonths(new Date(), -6);
     const dates = `${rangeDate},${currentDate}`;
-    const url = `${GAME_API_ROOT}games?dates=${dates}&ordering=-metacritic&page_size=9&key=${APP_KEY}`;
+    const url = `${GAMES_URL_API}&dates=${dates}&ordering=-metacritic&page_size=9`;
     const response = await fetchGames(url);
     return response;
   }
