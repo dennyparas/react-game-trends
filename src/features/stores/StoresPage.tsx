@@ -16,7 +16,7 @@ const StoresPage: FC = () => {
   return (
     <div className="container mt-5  mx-auto px-5 xl:px-0">
       <h1 className="text-2xl mb-2 mt-4">
-        Stores ({storesCount > 0 && `(${storesCount})`}
+        Stores {storesCount > 0 && `(${storesCount})`}
       </h1>
 
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-3 md:mx-0">

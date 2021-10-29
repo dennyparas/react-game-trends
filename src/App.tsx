@@ -12,30 +12,45 @@ import StoresPage from "./features/stores/StoresPage";
 const App: FC = () => {
   return (
     <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route path="/platforms">
-          <PlatformsPage />
-        </Route>
-        <Route path="/genres">
-          <GenresPage />
-        </Route>
-        <Route path="/tags">
-          <TagsPage />
-        </Route>
-        <Route path="/developers">
-          <DevelopersPage />
-        </Route>
-        <Route path="/publishers">
-          <PublishersPage />
-        </Route>
-        <Route path="/stores">
-          <StoresPage />
-        </Route>
-      </Switch>
+      <div className="flex flex-col h-screen  justify-between">
+        <Navbar />
+        <main className="mb-auto ">
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/platforms">
+              <PlatformsPage />
+            </Route>
+            <Route path="/genres">
+              <GenresPage />
+            </Route>
+            <Route path="/tags">
+              <TagsPage />
+            </Route>
+            <Route path="/developers">
+              <DevelopersPage />
+            </Route>
+            <Route path="/publishers">
+              <PublishersPage />
+            </Route>
+            <Route path="/stores">
+              <StoresPage />
+            </Route>
+          </Switch>
+        </main>
+        <footer className="h-10  pt-5 pb-10 text-center">
+          Powered by{" "}
+          <a
+            href="https://rawg.io"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold"
+          >
+            RAWG
+          </a>
+        </footer>
+      </div>
     </Router>
   );
 };
