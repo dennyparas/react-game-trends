@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import ProfileCardListSkeletonLoader from "../../components/ProfileCardListSkeletonLoader";
-import ProfileCard from "../../components/ProfileCard";
+import InfoCardListSkeletonLoader from "../../components/InfoCardListSkeletonLoader";
+import InfoCard from "../../components/InfoCard";
 import { STORES_URL_API } from "./../../constants/api";
 import { useGetStoresList } from "./../../hooks/useGetStoresList";
 
@@ -19,20 +19,20 @@ const StoresPage: FC = () => {
         Stores {storesCount > 0 && `(${storesCount})`}
       </h1>
 
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-3 md:mx-0">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-3 md:mx-0">
         {storesListData.map((store) => (
-          <ProfileCard
+          <InfoCard
             key={store.id}
             id={store.id}
             name={store.name}
-            type="store"
+            type="stores"
             slug={store.slug}
             games_count={store.games_count}
             games={store.games}
             image_background={store.image_background}
           />
         ))}
-        {isStoresListLoading && <ProfileCardListSkeletonLoader />}
+        {isStoresListLoading && <InfoCardListSkeletonLoader />}
       </div>
       {storesNextUrl && (
         <button

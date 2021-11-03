@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import ProfileCardListSkeletonLoader from "../../components/ProfileCardListSkeletonLoader";
-import ProfileCard from "../../components/ProfileCard";
+import InfoCardListSkeletonLoader from "../../components/InfoCardListSkeletonLoader";
+import InfoCard from "../../components/InfoCard";
 import { TAGS_URL_API } from "./../../constants/api";
 import { useGetTagsList } from "./../../hooks/useGetTagsList";
 
@@ -19,20 +19,20 @@ const TagsPage: FC = () => {
         Tags {tagsCount > 0 && `(${tagsCount})`}
       </h1>
 
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-3 md:mx-0">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-3 md:mx-0">
         {tagsListData.map((tag) => (
-          <ProfileCard
+          <InfoCard
             key={tag.id}
             id={tag.id}
             name={tag.name}
-            type="tag"
+            type="tags"
             slug={tag.slug}
             games_count={tag.games_count}
             games={tag.games}
             image_background={tag.image_background}
           />
         ))}
-        {isTagsListLoading && <ProfileCardListSkeletonLoader />}
+        {isTagsListLoading && <InfoCardListSkeletonLoader />}
       </div>
       {tagsNextUrl && (
         <button

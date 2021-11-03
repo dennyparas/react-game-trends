@@ -1,9 +1,26 @@
-import { FC, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { FC, useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { GoSearch, GoThreeBars } from "react-icons/go";
+import { useHistory } from "react-router-dom";
 
 const Navbar: FC = () => {
+  let history = useHistory();
+  const queryParams = useLocation().search;
+
+  const searchTermQuery = new URLSearchParams(queryParams).get("search") || "";
+
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const [searchTerm, setSearchTerm] = useState(searchTermQuery || "");
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      const searchTermQuery = searchTerm !== "" ? `search=${searchTerm}` : "";
+      history.push(`/games?${searchTermQuery}`);
+    }, 1000);
+    return () => clearTimeout(delayDebounceFn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-1 bg-gradient-to-r from-green-500 to-indigo-800  mb-3">
@@ -21,7 +38,9 @@ const Navbar: FC = () => {
             </div>
 
             <input
-              className="border-transparent h-full w-full outline-none focus:outline-none text-sm text-gray-700 pr-2"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border-transparent h-full w-full  focus:outline-none outline-none text-sm text-gray-700 pr-2"
               type="text"
               id="search"
             />

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./features/home/HomePage";
 import PlatformsPage from "./features/platforms/PlatformsPage";
+import GamesPage from "./features/games/GamesPage";
 import GenresPage from "./features/genres/GenresPage";
 import TagsPage from "./features/tags/TagsPage";
 import DevelopersPage from "./features/developers/DevelopersPage";
@@ -18,6 +19,9 @@ const App: FC = () => {
           <Switch>
             <Route exact path="/">
               <HomePage />
+            </Route>
+            <Route path="/games">
+              <GamesPage />
             </Route>
             <Route path="/platforms">
               <PlatformsPage />

@@ -22,3 +22,14 @@ export function endDayOfTheYear(): string {
 
   return day;
 }
+
+export function setArrayOfYears() {
+  const currentYear = new Date().getFullYear() + 1;
+  const min = 1950;
+  let years = [];
+
+  for (let i = currentYear; i >= min; i--) {
+    years.push(i);
+  }
+  return years;
+}

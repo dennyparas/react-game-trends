@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import ProfileCardListSkeletonLoader from "../../components/ProfileCardListSkeletonLoader";
-import ProfileCard from "../../components/ProfileCard";
+import InfoCardListSkeletonLoader from "../../components/InfoCardListSkeletonLoader";
+import InfoCard from "../../components/InfoCard";
 import { PLATFORMS_URL_API } from "./../../constants/api";
 import { useGetPlatformsList } from "./../../hooks/useGetPlatformsList";
 
@@ -19,12 +19,12 @@ const PlatformsPage: FC = () => {
         Platforms {platformsCount > 0 && `(${platformsCount})`}
       </h1>
 
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-3 md:mx-0">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-3 md:mx-0">
         {platformsListData.map((platform) => (
-          <ProfileCard
+          <InfoCard
             key={platform.id}
             id={platform.id}
-            type="platform"
+            type="platforms"
             name={platform.name}
             slug={platform.slug}
             games_count={platform.games_count}
@@ -32,7 +32,7 @@ const PlatformsPage: FC = () => {
             image_background={platform.image_background}
           />
         ))}
-        {isPlatformsListLoading && <ProfileCardListSkeletonLoader />}
+        {isPlatformsListLoading && <InfoCardListSkeletonLoader />}
       </div>
       {platformsNextUrl && (
         <button

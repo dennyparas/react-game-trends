@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import ProfileCardListSkeletonLoader from "../../components/ProfileCardListSkeletonLoader";
-import ProfileCard from "../../components/ProfileCard";
+import InfoCardListSkeletonLoader from "../../components/InfoCardListSkeletonLoader";
+import InfoCard from "../../components/InfoCard";
 import { GENRES_URL_API } from "./../../constants/api";
 import { useGetGenresList } from "./../../hooks/useGetGenresList";
 
@@ -19,20 +19,20 @@ const GenresPage: FC = () => {
         Genres {genresCount > 0 && `(${genresCount})`}
       </h1>
 
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-3 md:mx-0">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-3 md:mx-0">
         {genresListData.map((genre) => (
-          <ProfileCard
+          <InfoCard
             key={genre.id}
             id={genre.id}
             name={genre.name}
-            type="genre"
+            type="genres"
             slug={genre.slug}
             games_count={genre.games_count}
             games={genre.games}
             image_background={genre.image_background}
           />
         ))}
-        {isGenresListLoading && <ProfileCardListSkeletonLoader />}
+        {isGenresListLoading && <InfoCardListSkeletonLoader />}
       </div>
       {genresNextUrl && (
         <button

@@ -6,6 +6,7 @@ import tagsReducer from "./../features/tags/TagsSlice";
 import developersReducer from "./../features/developers/DevelopersSlice";
 import publishersReducer from "./../features/publishers/PublishersSlice";
 import storesReducer from "./../features/stores/StoresSlice";
+import gamesReducer from "./../features/games/GamesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     developers: developersReducer,
     publishers: publishersReducer,
     stores: storesReducer,
+    games: gamesReducer,
   },
 });
 

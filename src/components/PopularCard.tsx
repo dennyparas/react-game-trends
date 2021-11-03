@@ -31,14 +31,17 @@ const PopularCard: FC<Game> = ({
             {name}
           </h5>
         </NavLink>
-        <p className="text-xs text-gray-500 ">Release</p>
-        <p className="text-xs text-gray-300 mb-1">{released}</p>
-
+        {released && (
+          <>
+            <p className="text-xs text-gray-500 ">Release</p>
+            <p className="text-xs text-gray-300 mb-1">{released}</p>
+          </>
+        )}
         <p className="text-xs text-gray-500 ">Genres: </p>
         <p className="text-xs text-gray-300">
           {genres.slice(0, 3).map((genre, index) => (
-            <NavLink to={`/games?genre=${genre.id}`}>
-              <span key={genre.id}>{(index ? ", " : "") + genre.name} </span>
+            <NavLink key={genre.id} to={`/games?genre=${genre.id}`}>
+              <span>{(index ? ", " : "") + genre.name}</span>
             </NavLink>
           ))}
         </p>
@@ -46,10 +49,11 @@ const PopularCard: FC<Game> = ({
         <p className="text-xs text-gray-500 ">Platforms</p>
         <p className="text-xs text-gray-300">
           {platforms.map((platform, index) => (
-            <NavLink to={`/games?platform=${platform.platform.id}`}>
-              <span key={platform.platform.id}>
-                {(index ? ", " : "") + platform.platform.name}
-              </span>
+            <NavLink
+              key={platform.platform.id}
+              to={`/games?platforms=${platform.platform.id}`}
+            >
+              <span>{(index ? ", " : "") + platform.platform.name}</span>
             </NavLink>
           ))}
         </p>

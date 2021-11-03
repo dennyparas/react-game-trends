@@ -15,7 +15,7 @@ type ProfileProps = {
   }[];
 };
 
-const ProfileCard: FC<ProfileProps> = ({
+const InfoCard: FC<ProfileProps> = ({
   id,
   name,
   type,
@@ -66,4 +66,4 @@ const ProfileCard: FC<ProfileProps> = ({
   );
 };
 
-export default ProfileCard;
+export default InfoCard;

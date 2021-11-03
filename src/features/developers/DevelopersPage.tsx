@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import ProfileCardListSkeletonLoader from "../../components/ProfileCardListSkeletonLoader";
-import ProfileCard from "../../components/ProfileCard";
+import InfoCardListSkeletonLoader from "../../components/InfoCardListSkeletonLoader";
+import InfoCard from "../../components/InfoCard";
 import { DEVELOPERS_URL_API } from "./../../constants/api";
 import { useGetDevelopersList } from "./../../hooks/useGetDevelopersList";
 
@@ -19,20 +19,20 @@ const DevelopersPage: FC = () => {
         Developers {developersCount > 0 && `(${developersCount})`}
       </h1>
 
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-3 md:mx-0">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-3 md:mx-0">
         {developersListData.map((developer) => (
-          <ProfileCard
+          <InfoCard
             key={developer.id}
             id={developer.id}
             name={developer.name}
-            type="developer"
+            type="developers"
             slug={developer.slug}
             games_count={developer.games_count}
             games={developer.games}
             image_background={developer.image_background}
           />
         ))}
-        {isDevelopersListLoading && <ProfileCardListSkeletonLoader />}
+        {isDevelopersListLoading && <InfoCardListSkeletonLoader />}
       </div>
       {developersNextUrl && (
         <button

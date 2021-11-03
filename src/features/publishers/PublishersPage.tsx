@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import ProfileCardListSkeletonLoader from "../../components/ProfileCardListSkeletonLoader";
-import ProfileCard from "../../components/ProfileCard";
+import InfoCardListSkeletonLoader from "../../components/InfoCardListSkeletonLoader";
+import InfoCard from "../../components/InfoCard";
 import { PUBLISHERS_URL_API } from "./../../constants/api";
 import { useGetPublishersList } from "./../../hooks/useGetPublishersList";
 
@@ -19,20 +19,20 @@ const PublishersPage: FC = () => {
         Publishers {publishersCount > 0 && `(${publishersCount})`}
       </h1>
 
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-3 md:mx-0">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-3 md:mx-0">
         {publishersListData.map((publisher) => (
-          <ProfileCard
+          <InfoCard
             key={publisher.id}
             id={publisher.id}
             name={publisher.name}
-            type="publisher"
+            type="publishers"
             slug={publisher.slug}
             games_count={publisher.games_count}
             games={publisher.games}
             image_background={publisher.image_background}
           />
         ))}
-        {isPublishersListLoading && <ProfileCardListSkeletonLoader />}
+        {isPublishersListLoading && <InfoCardListSkeletonLoader />}
       </div>
       {publishersNextUrl && (
         <button

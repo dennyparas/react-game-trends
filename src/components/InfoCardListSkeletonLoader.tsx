@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const ProfileCardSkeletonLoader: FC = () => {
+const InfoCardSkeletonLoader: FC = () => {
   return (
     <div className="flex-1 mt-24 bg-white relative shadow-md rounded-2xl  w-full p-4 animate-pulse">
       <div className="flex justify-center">
@@ -37,14 +37,14 @@ const ProfileCardSkeletonLoader: FC = () => {
   );
 };
 
-const ProfileCardListSkeletonLoader: FC = () => {
+const InfoCardListSkeletonLoader: FC = () => {
   return (
     <>
       {Array.from({ length: 10 }, (_, i) => (
-        <ProfileCardSkeletonLoader key={i} />
+        <InfoCardSkeletonLoader key={i} />
       ))}
     </>
   );
 };
 
-export default ProfileCardListSkeletonLoader;
+export default InfoCardListSkeletonLoader;
