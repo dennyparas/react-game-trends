@@ -7,6 +7,7 @@ import developersReducer from "./../features/developers/DevelopersSlice";
 import publishersReducer from "./../features/publishers/PublishersSlice";
 import storesReducer from "./../features/stores/StoresSlice";
 import gamesReducer from "./../features/games/GamesSlice";
+import gameDetailsReducer from "./../features/gameDetails/GameDetailsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     publishers: publishersReducer,
     stores: storesReducer,
     games: gamesReducer,
+    gameDetails: gameDetailsReducer,
   },
 });
 

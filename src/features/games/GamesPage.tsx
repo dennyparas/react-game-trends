@@ -119,7 +119,7 @@ const GamesPage: FC = () => {
           storesQuery={storesQuery}
         />
         <div className="flex-grow w-full lg:w-4/5">
-          {gamesListCount === 0 && (
+          {gamesListCount === 0 && !isGamesListLoading && (
             <h1 className="text-xl mb-2 mt-4">No Games found.</h1>
           )}
           {gamesListCount > 0 && !isGamesListLoading && (

@@ -16,14 +16,14 @@ const Navbar: FC = () => {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       const searchTermQuery = searchTerm !== "" ? `search=${searchTerm}` : "";
-      history.push(`/games?${searchTermQuery}`);
+      if (searchTermQuery !== "") history.push(`/games?${searchTermQuery}`);
     }, 1000);
     return () => clearTimeout(delayDebounceFn);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm]);
 
   return (
-    <nav className="relative flex flex-wrap items-center justify-between px-2 py-1 bg-gradient-to-r from-green-500 to-indigo-800  mb-3">
+    <nav className="relative flex flex-wrap items-center justify-between px-2 py-1 bg-gradient-to-r from-green-500 to-indigo-800">
       <div className="container mx-auto flex flex-wrap items-center ">
         <div className="w-full relative flex justify-between lg:w-auto flex-grow ">
           <NavLink
