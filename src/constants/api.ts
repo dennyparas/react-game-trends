@@ -1,0 +1,10 @@
+export const GAME_API_ROOT = "https://api.rawg.io/api/";
+export const APP_KEY = process.env.REACT_APP_GAME_APP_KEY;
+export const PLATFORMS_URL_API = `${GAME_API_ROOT}platforms?key=${APP_KEY}`;
+export const GENRES_URL_API = `${GAME_API_ROOT}genres?key=${APP_KEY}`;
+export const TAGS_URL_API = `${GAME_API_ROOT}tags?key=${APP_KEY}`;
+export const DEVELOPERS_URL_API = `${GAME_API_ROOT}developers?key=${APP_KEY}`;
+export const PUBLISHERS_URL_API = `${GAME_API_ROOT}publishers?key=${APP_KEY}`;
+export const STORES_URL_API = `${GAME_API_ROOT}stores?key=${APP_KEY}`;
+export const GAMES_URL_API = `${GAME_API_ROOT}games?key=${APP_KEY}`;
+export const GAME_DETAILS_URL_API = `${GAME_API_ROOT}games/`;
