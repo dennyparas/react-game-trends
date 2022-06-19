@@ -50,12 +50,20 @@ const App: FC = () => {
         <footer className="h-10  pt-5 pb-10 text-center">
           Powered by{" "}
           <a
-            href="https://rawg.io"
+            href="https://gamesonline.co.id"
             target="_blank"
             rel="noreferrer"
             className="font-bold"
           >
-            RAWG
+            Games online
+          </a>
+          <a
+            href="https://tebakkata.id"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold"
+          >
+            Tebak Kata
           </a>
         </footer>
       </div>
